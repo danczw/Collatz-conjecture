@@ -9,7 +9,7 @@ def hs_uneven(x): # define function for uneven number
 again = "y"
 
 while again == "y": # loop for running multiple sequences
-    print("Enter a number to get the Hailstone sequence (Collatz conjecture):")
+    print("Enter a number (int > 0) to get the Hailstone sequence (Collatz conjecture):")
     x = int(input())
 
     if x > 0:
@@ -32,7 +32,7 @@ while again == "y": # loop for running multiple sequences
         again = input().lower()
 
     else:
-        print("Input has to be int and > 0. Run again? (y/n)")
+        print("Input has to be int > 0. Run again? (y/n)")
         again = input().lower()
 
 print("Bye!")
