@@ -1,3 +1,5 @@
+import numpy as np
+
 def hs_even(x): # define function for even number
     seq.append(int(x / 2))
     return x / 2
@@ -9,30 +11,30 @@ def hs_uneven(x): # define function for uneven number
 again = "y"
 
 while again == "y": # loop for running multiple sequences
-    print("Enter a number (int > 0) to get the Hailstone sequence (Collatz conjecture):")
-    x = int(input())
+    print("\nEnter a start, stop and step value (all int > 0, ex.: \"2 8 2\") to get the Hailstone sequences (Collatz conjecture):")
+    inp = input()
 
-    if x > 0:
+    inp_range = []
+    inp_range.append([int(i) for i in inp.split()])
+
+    for num in np.arange(inp_range[0][0],inp_range[0][1],inp_range[0][2]):
         i = 0 # counter for stopping infinite loop after two finishing sequences (4, 2, 1)
         seq = []
-        seq.append(x)
-        
+        seq.append(num)    
+    
         while i < 2:
-            if x != 1:
-                
-                if x % 2 == 0:
-                    x = hs_even(x) 
+            if num != 1:
+            
+                if num % 2 == 0:
+                    num = hs_even(num) 
                 else:
-                    x = hs_uneven(x)
-        
+                    num = hs_uneven(num)
+    
             else:
-                x = hs_uneven(x)
+                num = hs_uneven(num)
                 i += 1
-        print(f"Your sequence: {seq} \n Run again? (y/n)")
-        again = input().lower()
-
-    else:
-        print("Input has to be int > 0. Run again? (y/n)")
-        again = input().lower()
+        print(f"Sequence: {seq}")
+    print("\nRun again? (y/n)")
+    again = input().lower()
 
 print("Bye!")
