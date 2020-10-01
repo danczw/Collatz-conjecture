@@ -5,4 +5,4 @@ The Collatz conjecture is a conjecture in mathematics that concerns a sequence d
 
 collatz.py - create sequences
 seq_feartures.py - create sequences and corresponding features
-collatz_features.csv - sequences and features for 0 < n > 100.000
+collatz_features.csv - sequences and features for 0 < n > 10.000

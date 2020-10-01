@@ -47,7 +47,7 @@ def primes(list): # create list of primes from a list
 
 # input numbers (sequence starting numbers) TODO: adjust range below
 start = 1 # define start of range for input number n / caution: do not start with 0
-stop = 100000 # define stop of range for input number n
+stop = 10000 # define stop of range for input number n
 step = 1 # define step of range for input number n
 
 n = np.arange(start, stop, step)
@@ -72,7 +72,7 @@ print('5/10 - amount_even done!')
 collatz_df['amount_uneven'] = [count_uneven(i) for i in collatz_df['seq']]
 print('6/10 - amount_uneven done!')
 
-# prime numbers in sequence
+# list prime numbers in sequence
 collatz_df['primes'] = [primes(i) for i in collatz_df['seq']]
 print('7/10 - primes done!')
 
@@ -81,11 +81,11 @@ collatz_df['amount_prime'] = [len(i) for i in collatz_df['seq']]
 print('8/10 - amount_prime done!')
 
 # max prime number in sequence
-collatz_df['max_prime'] = [max(i) for i in collatz_df['seq']]
+collatz_df['max_prime'] = [max(i) if len(i) > 0 else None for i in collatz_df['primes']]
 print('9/10 - max_prime done!')
 
 # min prime number in sequence
-collatz_df['min_prime'] = [int(sorted(i[0:1])[0]) if len(i) > 1 else None for i in collatz_df['primes']]
+collatz_df['min_prime'] = [int(sorted(i[0:1])[0]) if len(i) > 0 else None for i in collatz_df['primes']]
 print('10/10 - min_prime done!')
 
 print(collatz_df.head(5))
