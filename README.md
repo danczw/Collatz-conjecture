@@ -7,4 +7,4 @@ collatz.py - create sequences
 
 seq_feartures.py - create sequences and corresponding features
 
-collatz_features.csv - sequences and features for 0 < n > 10.000
+collatz_features.csv - sequences and features for 0 < n < 10.000
